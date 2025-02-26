@@ -2,7 +2,7 @@
 import { defineProps } from "vue";
 
 const props = defineProps({
-  board: {
+  comment: {
     type: Object,
     required: true,
   },
@@ -10,11 +10,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <router-link :to="`/board/${board.idx}`" id="board_item">
-    <p>{{ board.idx }}</p>
-    <p>{{ board.title }}</p>
-    <p>{{ board.writer }}</p>
-  </router-link>
+  <div>
+    <p>{{ comment.content }}</p>
+    <p>{{ comment.writer }}</p>
+  </div>
 </template>
 
 <style scoped></style>

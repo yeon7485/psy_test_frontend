@@ -12,11 +12,11 @@ export const useBoardStore = defineStore("board", {
 
       return response.data.data;
     },
-    // async getCourseDetail(idx) {
-    //   const response = await axios.get(backend + "/course/" + idx);
+    async getBoardDetail(idx) {
+      const response = await axios.get(backend + "/board/read/" + idx);
 
-    //   return response.data;
-    // },
+      return response.data.data;
+    },
 
     // async registerCourseDetail(course) {
     //   const response = await axios.post(

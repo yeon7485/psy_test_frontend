@@ -39,7 +39,7 @@ const goToPage = (page) => {
 
 <template>
   <h1>Board</h1>
-  <BoardCard v-for="board in boardList" :item="board" />
+  <BoardCard v-for="board in boardList" :board="board" />
 </template>
 
 <style scoped></style>
