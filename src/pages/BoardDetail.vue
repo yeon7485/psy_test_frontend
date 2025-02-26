@@ -20,6 +20,10 @@ const createComment = async () => {
   const result = await boardStore.addComment(boardIdx, commentData.value);
   if (result.success) {
     alert(result.message);
+    commentData.value = {
+      content: "",
+      writer: "",
+    };
     fetchBoard();
   }
 };
@@ -77,6 +81,7 @@ onMounted(async () => {
               placeholder="내용을 입력해주세요."
               v-model="commentData.content"
               class="textarea-field"
+              required
             ></textarea>
           </div>
           <button @click="createComment" class="submit-btn">등록</button>

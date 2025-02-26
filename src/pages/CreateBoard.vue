@@ -20,7 +20,7 @@ const create = async () => {
     console.log(result);
     if (result.success) {
       alert(result.message);
-      router.push("/");
+      router.push("/board");
     }
   }
 };
