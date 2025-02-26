@@ -25,43 +25,123 @@ const create = async () => {
   }
 };
 </script>
-
 <template>
-  <div>
-    <div class="write_item">
-      <p>제목</p>
-      <div class="input">
+  <div class="container">
+    <h2 class="title">게시글 작성</h2>
+    <div class="form">
+      <!-- 제목 입력 -->
+      <div class="form-group">
+        <label for="title">제목</label>
         <input
+          id="title"
           type="text"
           placeholder="제목을 입력해주세요."
           v-model="boardData.title"
         />
       </div>
-    </div>
-    <div class="write_item">
-      <p>작성자</p>
-      <div class="input">
+
+      <!-- 작성자 입력 -->
+      <div class="form-group">
+        <label for="writer">작성자</label>
         <input
+          id="writer"
           type="text"
           placeholder="작성자를 입력해주세요."
           v-model="boardData.writer"
         />
       </div>
-    </div>
-    <div class="write_item">
-      <p>내용</p>
-      <div class="input_contents">
+
+      <!-- 내용 입력 -->
+      <div class="form-group">
+        <label for="contents">내용</label>
         <textarea
-          name="contents"
+          id="contents"
           placeholder="내용을 입력해주세요."
           v-model="boardData.contents"
-        >
-        </textarea>
+        ></textarea>
       </div>
-    </div>
 
-    <button @click="create">등록</button>
+      <!-- 등록 버튼 -->
+      <button class="submit-btn" @click="create">등록</button>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* 전체 컨테이너 */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 제목 */
+.title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* 폼 전체 스타일 */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 입력 필드 그룹 */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* 입력 필드 스타일 */
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border 0.3s;
+  resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: slateblue;
+  outline: none;
+}
+
+/* 텍스트 영역 크기 조절 */
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* 버튼 스타일 */
+.submit-btn {
+  background-color: slateblue;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: darkslateblue;
+}
+</style>
