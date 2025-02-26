@@ -17,19 +17,13 @@ export const useBoardStore = defineStore("board", {
 
       return response.data.data;
     },
-
-    // async registerCourseDetail(course) {
-    //   const response = await axios.post(
-    //     backend + "/course/register",
-    //     toRaw(course),
-    //     { withCredentials: true }
-    //   );
-
-    //   if (response.status === 200) {
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // },
+    async createBoard(boardData) {
+      const response = await axios.post(backend + "/board/create", boardData);
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        return false;
+      }
+    },
   },
 });
